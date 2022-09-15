@@ -44,7 +44,7 @@ var specials = window.confirm ("Would you like any lower case letters in your pa
 if (specials) {
     password = userInput.specials
 };
-
+    return password;
 }
 
 
