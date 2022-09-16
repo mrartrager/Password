@@ -59,15 +59,22 @@ function generatePassword() {
     );
     password = userInput.specials;
   }
-  return password;
+  
 }
 
 // Write password to the #password input
 function writePassword() {
+
+
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
 
+   for (let i = 0; i < password.length; i++) {
+     password += "userInput";
+  }
+  
   passwordText.value = password;
+  return password;
 }
 
 // Add event listener to generate button
