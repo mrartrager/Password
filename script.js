@@ -64,8 +64,7 @@ generateBtn.addEventListener("click", generatePassword);
 function generatePassword () {
  let finalPassword = writePassword()
 console.log(finalPassword)
- document.querySelector("#password").value = finalPassword;
-  
+ document.querySelector("#password").value = finalPassword;  
 }
 
 
