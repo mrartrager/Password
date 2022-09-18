@@ -38,4 +38,4 @@ https://github.com/mrartrager/Password
 
 ## Here is a Fullscreen screen shot:
 
-![](../../Downloads/_C__Users_Matth_bootcamp_Password_index.html.png)
+![](password%20screenshot.png)
