@@ -9,8 +9,6 @@ let randomPassword = [];
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
   let passwordLength = prompt("Choose a number between 8 and 128 characters. This will be how long your password is.");
   if (passwordLength < 8 || passwordLength > 128) {alert("Hey dude, your password is not between 8 characters and 128 characters. Try again.");
   passwordLength = prompt("Choose a password length of at least 8 characters and no more than 128 characters.");
@@ -22,49 +20,51 @@ function writePassword() {
   let num = confirm("Do you want your password to contain any numbers?");
   let specials = confirm("Do you want your password to contain any special characters?");
 
-
-  passwordText.value = password;
   
 
   if (lowerLetters) {
     console.log("Your password will have lower case!")
     randomPassword = randomPassword.concat(lowerCase)
   } else {
-    console.log("Your password will NOT have lower case, wow, you want to get hacked?")
+    console.error("Your password will NOT have lower case, wow, you want to get hacked?")
   }
 
   if (upperLetters) {
     console.log("Your password will have Upper case!")
     randomPassword = randomPassword.concat(upperCase)
   } else {
-    console.log ("Your password will NOT have Upper case, wow, you want to get hacked?")
+    console.error ("Your password will NOT have Upper case, wow, you want to get hacked?")
   }
   
   if (num) {
     console.log("Your password will have numbers!")
    randomPassword = randomPassword.concat(numbers)
   } else {
-    console.log("Your password will NOT have numbers, wow, you want to get hacked?")
+    console.error ("Your password will NOT have numbers, wow, you want to get hacked?")
   }
 
   if (specials) {
     console.log("Your password will have special characters!")
     randomPassword = randomPassword.concat(characters)
   } else {
-    console.log("Your password will NOT have special characters, wow, you want to get hacked?")
+    console.error ("Your password will NOT have special characters, wow, you want to get hacked?")
   }
   console.log(randomPassword);
-
-  let word=""; 
-  for (let i = 0; i < passwordLength; i++){
-    word += randomPassword[Math.floor(Math.random()* randomPassword.length)]
+  let finalPassword = ""; 
+  for (let i = 0 ; i <= passwordLength; i ++){
+    finalPassword += randomPassword[Math.floor(Math.random()* randomPassword.length)]
   }
-  return word 
+  console.log(finalPassword);
+  
+ return finalPassword;
+
 }
 
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 function generatePassword () {
- 
+ let finalPassword = writePassword()
+console.log(finalPassword)
+ document.querySelector("#password").value = finalPassword;
   
 }
 
